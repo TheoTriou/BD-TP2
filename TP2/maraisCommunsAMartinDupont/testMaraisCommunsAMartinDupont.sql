@@ -1,0 +1,53 @@
+DELETE FROM "RECOLTE";
+DELETE FROM "SAUNIER";
+DELETE FROM "PROPRIETE";
+DELETE FROM "CARREAU";
+DELETE FROM "MARAIS";
+DELETE FROM "PROPRIETAIRE";
+
+
+
+INSERT INTO "PROPRIETAIRE" ("IDPRO", "NOMPRO", "PRENOMPRO")
+VALUES (0, 'Martin', 'Jean');
+
+INSERT INTO "PROPRIETAIRE" ("IDPRO", "NOMPRO", "PRENOMPRO")
+VALUES (1, 'Dupont', 'Pierre');
+
+INSERT INTO "PROPRIETAIRE" ("IDPRO", "NOMPRO", "PRENOMPRO")
+VALUES (2, 'Position', 'Paul');
+
+
+INSERT INTO "MARAIS" ("IDMAR", "NOMMAR", "ADRMAR")
+VALUES (0, 'Nommar1', 'Adr1');
+
+INSERT INTO "MARAIS" ("IDMAR", "NOMMAR", "ADRMAR")
+VALUES (1, 'Nommar2', 'Adr2');
+
+INSERT INTO "MARAIS" ("IDMAR", "NOMMAR", "ADRMAR")
+VALUES (2, 'Nommar3', 'Adr3');
+
+INSERT INTO "MARAIS" ("IDMAR", "NOMMAR", "ADRMAR")
+VALUES (3, 'Nommar4', 'Adr4');
+
+
+-- Domaine valide
+
+-- Marais appartenant à Mr Dupont et Mr Martin
+INSERT INTO "PROPRIETE" ("IDPRO", "IDMAR")
+VALUES (0, 0);
+INSERT INTO "PROPRIETE" ("IDPRO", "IDMAR")
+VALUES (1, 0);
+
+-- Domaine invalide
+
+-- Marais n'appartenant à aucun des deux
+INSERT INTO "PROPRIETE" ("IDPRO", "IDMAR")
+VALUES (2, 1);
+
+-- Marais n'appartenant qu'à Mr Martin
+INSERT INTO "PROPRIETE" ("IDPRO", "IDMAR")
+VALUES (0, 2);
+
+-- Marais n'appartenant qu'à Mr Dupont
+INSERT INTO "PROPRIETE" ("IDPRO", "IDMAR")
+VALUES (1, 3);
